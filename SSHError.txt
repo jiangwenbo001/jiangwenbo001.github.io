@@ -1,0 +1,679 @@
+ssh qz25@174.0.250.88 -vvv
+OpenSSH_8.9p1 Ubuntu-3ubuntu0.13, OpenSSL 3.0.2 15 Mar 2022
+debug1: Reading configuration data /etc/ssh/ssh_config
+debug1: /etc/ssh/ssh_config line 19: include /etc/ssh/ssh_config.d/*.conf matched no files
+debug1: /etc/ssh/ssh_config line 21: Applying options for *
+debug2: resolve_canonicalize: hostname 174.0.250.88 is address
+debug3: expanded UserKnownHostsFile '~/.ssh/known_hosts' -> '/home/x/.ssh/known_hosts'
+debug3: expanded UserKnownHostsFile '~/.ssh/known_hosts2' -> '/home/x/.ssh/known_hosts2'
+debug3: ssh_connect_direct: entering
+debug1: Connecting to 174.0.250.88 [174.0.250.88] port 22.
+debug3: set_sock_tos: set socket 3 IP_TOS 0x10
+debug1: Connection established.
+debug1: identity file /home/x/.ssh/id_rsa type -1
+debug1: identity file /home/x/.ssh/id_rsa-cert type -1
+debug1: identity file /home/x/.ssh/id_ecdsa type -1
+debug1: identity file /home/x/.ssh/id_ecdsa-cert type -1
+debug1: identity file /home/x/.ssh/id_ecdsa_sk type -1
+debug1: identity file /home/x/.ssh/id_ecdsa_sk-cert type -1
+debug1: identity file /home/x/.ssh/id_ed25519 type -1
+debug1: identity file /home/x/.ssh/id_ed25519-cert type -1
+debug1: identity file /home/x/.ssh/id_ed25519_sk type -1
+debug1: identity file /home/x/.ssh/id_ed25519_sk-cert type -1
+debug1: identity file /home/x/.ssh/id_xmss type -1
+debug1: identity file /home/x/.ssh/id_xmss-cert type -1
+debug1: identity file /home/x/.ssh/id_dsa type -1
+debug1: identity file /home/x/.ssh/id_dsa-cert type -1
+debug1: Local version string SSH-2.0-OpenSSH_8.9p1 Ubuntu-3ubuntu0.13
+debug1: Remote protocol version 2.0, remote software version OpenSSH_7.4
+debug1: compat_banner: match: OpenSSH_7.4 pat OpenSSH_7.4* compat 0x04000006
+debug2: fd 3 setting O_NONBLOCK
+debug1: Authenticating to 174.0.250.88:22 as 'qz25'
+debug3: record_hostkey: found key type ED25519 in file /home/x/.ssh/known_hosts:1
+debug3: record_hostkey: found key type ECDSA in file /home/x/.ssh/known_hosts:2
+debug3: load_hostkeys_file: loaded 2 keys from 174.0.250.88
+debug1: load_hostkeys: fopen /home/x/.ssh/known_hosts2: No such file or directory
+debug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts: No such file or directory
+debug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts2: No such file or directory
+debug3: order_hostkeyalgs: have matching best-preference key type ssh-ed25519-cert-v01@openssh.com, using HostkeyAlgorithms verbatim
+debug3: send packet: type 20
+debug1: SSH2_MSG_KEXINIT sent
+debug3: receive packet: type 20
+debug1: SSH2_MSG_KEXINIT received
+debug2: local client KEXINIT proposal
+debug2: KEX algorithms: curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,sntrup761x25519-sha512@openssh.com,diffie-hellman-group-exchange-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group14-sha256,ext-info-c,kex-strict-c-v00@openssh.com
+debug2: host key algorithms: ssh-ed25519-cert-v01@openssh.com,ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp521-cert-v01@openssh.com,sk-ssh-ed25519-cert-v01@openssh.com,sk-ecdsa-sha2-nistp256-cert-v01@openssh.com,rsa-sha2-512-cert-v01@openssh.com,rsa-sha2-256-cert-v01@openssh.com,ssh-ed25519,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,sk-ssh-ed25519@openssh.com,sk-ecdsa-sha2-nistp256@openssh.com,rsa-sha2-512,rsa-sha2-256
+debug2: ciphers ctos: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com
+debug2: ciphers stoc: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com
+debug2: MACs ctos: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1
+debug2: MACs stoc: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1
+debug2: compression ctos: none,zlib@openssh.com,zlib
+debug2: compression stoc: none,zlib@openssh.com,zlib
+debug2: languages ctos:
+debug2: languages stoc:
+debug2: first_kex_follows 0
+debug2: reserved 0
+debug2: peer server KEXINIT proposal
+debug2: KEX algorithms: curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha256,diffie-hellman-group14-sha1,diffie-hellman-group1-sha1
+debug2: host key algorithms: ssh-rsa,rsa-sha2-512,rsa-sha2-256,ecdsa-sha2-nistp256,ssh-ed25519
+debug2: ciphers ctos: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-cbc,aes192-cbc,aes256-cbc,blowfish-cbc,cast128-cbc,3des-cbc
+debug2: ciphers stoc: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-cbc,aes192-cbc,aes256-cbc,blowfish-cbc,cast128-cbc,3des-cbc
+debug2: MACs ctos: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1
+debug2: MACs stoc: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1
+debug2: compression ctos: none,zlib@openssh.com
+debug2: compression stoc: none,zlib@openssh.com
+debug2: languages ctos:
+debug2: languages stoc:
+debug2: first_kex_follows 0
+debug2: reserved 0
+debug1: kex: algorithm: curve25519-sha256
+debug1: kex: host key algorithm: ssh-ed25519
+debug1: kex: server->client cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none
+debug1: kex: client->server cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none
+debug3: send packet: type 30
+debug1: expecting SSH2_MSG_KEX_ECDH_REPLY
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+strace ssh qz25@174.0.250.88
+
+execve("/usr/bin/ssh", ["ssh", "qz25@174.0.250.88"], 0x7ffeb7ab1cd8 /* 27 vars */) = 0
+brk(NULL)                               = 0x5c7a2df3e000
+arch_prctl(0x3001 /* ARCH_??? */, 0x7ffc157ad700) = -1 EINVAL (Invalid argument)
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x79b3c2569000
+access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=27008, ...}, AT_EMPTY_PATH) = 0
+mmap(NULL, 27008, PROT_READ, MAP_PRIVATE, 3, 0) = 0x79b3c2562000
+close(3)                                = 0
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libcrypto.so.3", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=4455728, ...}, AT_EMPTY_PATH) = 0
+mmap(NULL, 4469952, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x79b3c2000000
+mmap(0x79b3c20b2000, 2486272, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0xb2000) = 0x79b3c20b2000
+mmap(0x79b3c2311000, 860160, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x311000) = 0x79b3c2311000
+mmap(0x79b3c23e3000, 385024, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x3e2000) = 0x79b3c23e3000
+mmap(0x79b3c2441000, 9408, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x79b3c2441000
+close(3)                                = 0
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libz.so.1", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=108936, ...}, AT_EMPTY_PATH) = 0
+mmap(NULL, 110776, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x79b3c2546000
+mprotect(0x79b3c2548000, 98304, PROT_NONE) = 0
+mmap(0x79b3c2548000, 69632, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x2000) = 0x79b3c2548000
+mmap(0x79b3c2559000, 24576, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x13000) = 0x79b3c2559000
+mmap(0x79b3c2560000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x19000) = 0x79b3c2560000
+close(3)                                = 0
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libselinux.so.1", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=166280, ...}, AT_EMPTY_PATH) = 0
+mmap(NULL, 177672, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x79b3c251a000
+mprotect(0x79b3c2520000, 139264, PROT_NONE) = 0
+mmap(0x79b3c2520000, 106496, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x6000) = 0x79b3c2520000
+mmap(0x79b3c253a000, 28672, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x20000) = 0x79b3c253a000
+mmap(0x79b3c2542000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x27000) = 0x79b3c2542000
+mmap(0x79b3c2544000, 5640, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x79b3c2544000
+close(3)                                = 0
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libgssapi_krb5.so.2", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=338648, ...}, AT_EMPTY_PATH) = 0
+mmap(NULL, 340960, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x79b3c24c6000
+mprotect(0x79b3c24d1000, 282624, PROT_NONE) = 0
+mmap(0x79b3c24d1000, 229376, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0xb000) = 0x79b3c24d1000
+mmap(0x79b3c2509000, 49152, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x43000) = 0x79b3c2509000
+mmap(0x79b3c2516000, 16384, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x4f000) = 0x79b3c2516000
+close(3)                                = 0
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0P\237\2\0\0\0\0\0"..., 832) = 832
+pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+pread64(3, "\4\0\0\0 \0\0\0\5\0\0\0GNU\0\2\0\0\300\4\0\0\0\3\0\0\0\0\0\0\0"..., 48, 848) = 48
+pread64(3, "\4\0\0\0\24\0\0\0\3\0\0\0GNU\0\325\31p\226\367\t\200\30)\261\30\257\33|\366c"..., 68, 896) = 68
+newfstatat(3, "", {st_mode=S_IFREG|0755, st_size=2220400, ...}, AT_EMPTY_PATH) = 0
+pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+mmap(NULL, 2264656, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x79b3c1c00000
+mprotect(0x79b3c1c28000, 2023424, PROT_NONE) = 0
+mmap(0x79b3c1c28000, 1658880, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x28000) = 0x79b3c1c28000
+mmap(0x79b3c1dbd000, 360448, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1bd000) = 0x79b3c1dbd000
+mmap(0x79b3c1e16000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x215000) = 0x79b3c1e16000
+mmap(0x79b3c1e1c000, 52816, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x79b3c1e1c000
+close(3)                                = 0
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libpcre2-8.so.0", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=613064, ...}, AT_EMPTY_PATH) = 0
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x79b3c24c4000
+mmap(NULL, 615184, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x79b3c1f69000
+mmap(0x79b3c1f6b000, 438272, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x2000) = 0x79b3c1f6b000
+mmap(0x79b3c1fd6000, 163840, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x6d000) = 0x79b3c1fd6000
+mmap(0x79b3c1ffe000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x94000) = 0x79b3c1ffe000
+close(3)                                = 0
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libkrb5.so.3", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=827936, ...}, AT_EMPTY_PATH) = 0
+mmap(NULL, 830576, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x79b3c1e9e000
+mprotect(0x79b3c1ebf000, 634880, PROT_NONE) = 0
+mmap(0x79b3c1ebf000, 380928, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x21000) = 0x79b3c1ebf000
+mmap(0x79b3c1f1c000, 249856, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x7e000) = 0x79b3c1f1c000
+mmap(0x79b3c1f5a000, 61440, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0xbb000) = 0x79b3c1f5a000
+close(3)                                = 0
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libk5crypto.so.3", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=182864, ...}, AT_EMPTY_PATH) = 0
+mmap(NULL, 188472, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x79b3c2495000
+mprotect(0x79b3c2499000, 163840, PROT_NONE) = 0
+mmap(0x79b3c2499000, 110592, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x4000) = 0x79b3c2499000
+mmap(0x79b3c24b4000, 49152, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1f000) = 0x79b3c24b4000
+mmap(0x79b3c24c1000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x2b000) = 0x79b3c24c1000
+mmap(0x79b3c24c3000, 56, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x79b3c24c3000
+close(3)                                = 0
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libcom_err.so.2", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=18504, ...}, AT_EMPTY_PATH) = 0
+mmap(NULL, 20552, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x79b3c248f000
+mmap(0x79b3c2491000, 4096, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x2000) = 0x79b3c2491000
+mmap(0x79b3c2492000, 4096, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x3000) = 0x79b3c2492000
+mmap(0x79b3c2493000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x3000) = 0x79b3c2493000
+close(3)                                = 0
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libkrb5support.so.0", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=52016, ...}, AT_EMPTY_PATH) = 0
+mmap(NULL, 54224, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x79b3c2481000
+mprotect(0x79b3c2484000, 36864, PROT_NONE) = 0
+mmap(0x79b3c2484000, 24576, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x3000) = 0x79b3c2484000
+mmap(0x79b3c248a000, 8192, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x9000) = 0x79b3c248a000
+mmap(0x79b3c248d000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0xb000) = 0x79b3c248d000
+close(3)                                = 0
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libkeyutils.so.1", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=22600, ...}, AT_EMPTY_PATH) = 0
+mmap(NULL, 24592, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x79b3c247a000
+mmap(0x79b3c247c000, 8192, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x2000) = 0x79b3c247c000
+mmap(0x79b3c247e000, 4096, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x4000) = 0x79b3c247e000
+mmap(0x79b3c247f000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x4000) = 0x79b3c247f000
+close(3)                                = 0
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libresolv.so.2", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=68552, ...}, AT_EMPTY_PATH) = 0
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x79b3c2478000
+mmap(NULL, 80456, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x79b3c2464000
+mmap(0x79b3c2467000, 40960, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x3000) = 0x79b3c2467000
+mmap(0x79b3c2471000, 12288, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0xd000) = 0x79b3c2471000
+mmap(0x79b3c2474000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0xf000) = 0x79b3c2474000
+mmap(0x79b3c2476000, 6728, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x79b3c2476000
+close(3)                                = 0
+mmap(NULL, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x79b3c2461000
+arch_prctl(ARCH_SET_FS, 0x79b3c2461840) = 0
+set_tid_address(0x79b3c2461b10)         = 638
+set_robust_list(0x79b3c2461b20, 24)     = 0
+rseq(0x79b3c24621e0, 0x20, 0, 0x53053053) = 0
+mprotect(0x79b3c1e16000, 16384, PROT_READ) = 0
+mprotect(0x79b3c2474000, 4096, PROT_READ) = 0
+mprotect(0x79b3c247f000, 4096, PROT_READ) = 0
+mprotect(0x79b3c248d000, 4096, PROT_READ) = 0
+mprotect(0x79b3c2493000, 4096, PROT_READ) = 0
+mprotect(0x79b3c24c1000, 4096, PROT_READ) = 0
+mprotect(0x79b3c1f5a000, 53248, PROT_READ) = 0
+mprotect(0x79b3c1ffe000, 4096, PROT_READ) = 0
+mprotect(0x79b3c2516000, 8192, PROT_READ) = 0
+mprotect(0x79b3c2542000, 4096, PROT_READ) = 0
+mprotect(0x79b3c2560000, 4096, PROT_READ) = 0
+mprotect(0x79b3c23e3000, 372736, PROT_READ) = 0
+mprotect(0x5c7a1b876000, 12288, PROT_READ) = 0
+mprotect(0x79b3c25a3000, 8192, PROT_READ) = 0
+prlimit64(0, RLIMIT_STACK, NULL, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
+munmap(0x79b3c2562000, 27008)           = 0
+statfs("/sys/fs/selinux", {f_type=SYSFS_MAGIC, f_bsize=4096, f_blocks=0, f_bfree=0, f_bavail=0, f_files=0, f_ffree=0, f_fsid={val=[0x7af88e76, 0x6ebe4f7a]}, f_namelen=255, f_frsize=4096, f_flags=ST_VALID|ST_NOSUID|ST_NODEV|ST_NOEXEC|ST_NOATIME}) = 0
+statfs("/selinux", 0x7ffc157ad740)      = -1 ENOENT (No such file or directory)
+getrandom("\x00\x98\xb5\xe7\x4c\x4e\x77\xda", 8, GRND_NONBLOCK) = 8
+brk(NULL)                               = 0x5c7a2df3e000
+brk(0x5c7a2df5f000)                     = 0x5c7a2df5f000
+openat(AT_FDCWD, "/proc/filesystems", O_RDONLY|O_CLOEXEC) = 3
+newfstatat(3, "", {st_mode=S_IFREG|0444, st_size=0, ...}, AT_EMPTY_PATH) = 0
+read(3, "nodev\tsysfs\nnodev\ttmpfs\nnodev\tbd"..., 1024) = 442
+close(3)                                = 0
+openat(AT_FDCWD, "/proc/mounts", O_RDONLY|O_CLOEXEC) = 3
+newfstatat(3, "", {st_mode=S_IFREG|0444, st_size=0, ...}, AT_EMPTY_PATH) = 0
+read(3, "none /usr/lib/modules/6.6.87.2-m"..., 1024) = 1024
+read(3, " 0\ndevpts /dev/pts devpts rw,nos"..., 1024) = 1024
+read(3, "e=65536,trans=fd,rfd=6,wfd=6 0 0"..., 1024) = 726
+read(3, "", 1024)                       = 0
+close(3)                                = 0
+access("/etc/selinux/config", F_OK)     = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/dev/null", O_RDWR)   = 3
+close(3)                                = 0
+close_range(3, 2147483647, 0)           = 0
+futex(0x79b3c2440ba4, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+futex(0x79b3c2440ba0, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+futex(0x79b3c2440b9c, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+futex(0x79b3c2440ef0, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+futex(0x79b3c2440b94, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+futex(0x79b3c2440b90, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+futex(0x79b3c2440920, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+futex(0x79b3c24404d0, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+futex(0x79b3c2440778, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+futex(0x79b3c2440a00, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+futex(0x79b3c2440748, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+futex(0x79b3c2440b98, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+futex(0x79b3c2440b80, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+futex(0x79b3c2440b7c, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+openat(AT_FDCWD, "/usr/lib/ssl/openssl.cnf", O_RDONLY) = 3
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=12419, ...}, AT_EMPTY_PATH) = 0
+read(3, "#\n# OpenSSL example configuratio"..., 4096) = 4096
+read(3, "r type CA, the listed attributes"..., 4096) = 4096
+read(3, "r:copy\n\n# DER hex encoding of an"..., 4096) = 4096
+read(3, "ertout # insta.cert.pem\n\n[ssl_se"..., 4096) = 131
+read(3, "", 4096)                       = 0
+close(3)                                = 0
+futex(0x79b3c244070c, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+futex(0x79b3c2440b8c, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+futex(0x79b3c2440f20, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+brk(0x5c7a2df84000)                     = 0x5c7a2df84000
+getpid()                                = 638
+brk(0x5c7a2dfa5000)                     = 0x5c7a2dfa5000
+brk(0x5c7a2dfcb000)                     = 0x5c7a2dfcb000
+brk(0x5c7a2dfec000)                     = 0x5c7a2dfec000
+getrandom("\xb0\xed\x30\xbb\xcc\x25\x3d\x65\x48\x9d\xca\x0d\x4f\xaf\x9d\x65\xe1\xfa\x10\xd7\x85\xbc\xbc\x05\x83\xab\xfd\xa3\xf2\xae\x50\x99"..., 48, 0) = 48
+getpid()                                = 638
+getpid()                                = 638
+getpid()                                = 638
+getpid()                                = 638
+getpid()                                = 638
+getuid()                                = 1003
+socket(AF_UNIX, SOCK_STREAM|SOCK_CLOEXEC|SOCK_NONBLOCK, 0) = 3
+connect(3, {sa_family=AF_UNIX, sun_path="/var/run/nscd/socket"}, 110) = -1 ENOENT (No such file or directory)
+close(3)                                = 0
+socket(AF_UNIX, SOCK_STREAM|SOCK_CLOEXEC|SOCK_NONBLOCK, 0) = 3
+connect(3, {sa_family=AF_UNIX, sun_path="/var/run/nscd/socket"}, 110) = -1 ENOENT (No such file or directory)
+close(3)                                = 0
+newfstatat(AT_FDCWD, "/etc/nsswitch.conf", {st_mode=S_IFREG|0644, st_size=510, ...}, 0) = 0
+newfstatat(AT_FDCWD, "/", {st_mode=S_IFDIR|0755, st_size=4096, ...}, 0) = 0
+openat(AT_FDCWD, "/etc/nsswitch.conf", O_RDONLY|O_CLOEXEC) = 3
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=510, ...}, AT_EMPTY_PATH) = 0
+read(3, "# /etc/nsswitch.conf\n#\n# Example"..., 4096) = 510
+read(3, "", 4096)                       = 0
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=510, ...}, AT_EMPTY_PATH) = 0
+close(3)                                = 0
+openat(AT_FDCWD, "/etc/passwd", O_RDONLY|O_CLOEXEC) = 3
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=1644, ...}, AT_EMPTY_PATH) = 0
+lseek(3, 0, SEEK_SET)                   = 0
+read(3, "root:x:0:0:root:/root:/bin/bash\n"..., 4096) = 1644
+close(3)                                = 0
+umask(022)                              = 022
+openat(AT_FDCWD, "/usr/lib/locale/locale-archive", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/share/locale/locale.alias", O_RDONLY|O_CLOEXEC) = 3
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=2996, ...}, AT_EMPTY_PATH) = 0
+read(3, "# Locale name alias data base.\n#"..., 4096) = 2996
+read(3, "", 4096)                       = 0
+close(3)                                = 0
+openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_CTYPE", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_CTYPE", O_RDONLY|O_CLOEXEC) = 3
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=353616, ...}, AT_EMPTY_PATH) = 0
+mmap(NULL, 353616, PROT_READ, MAP_PRIVATE, 3, 0) = 0x79b3c1e47000
+close(3)                                = 0
+openat(AT_FDCWD, "/usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache", O_RDONLY) = 3
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=27002, ...}, AT_EMPTY_PATH) = 0
+mmap(NULL, 27002, PROT_READ, MAP_SHARED, 3, 0) = 0x79b3c2562000
+close(3)                                = 0
+futex(0x79b3c1e1ba6c, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+openat(AT_FDCWD, "/home/x/.ssh/config", O_RDONLY) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/etc/ssh/ssh_config", O_RDONLY) = 3
+getpid()                                = 638
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=1650, ...}, AT_EMPTY_PATH) = 0
+read(3, "\n# This is the ssh client system"..., 4096) = 1650
+openat(AT_FDCWD, "/etc/ssh/ssh_config.d/", O_RDONLY|O_NONBLOCK|O_CLOEXEC|O_DIRECTORY) = 4
+newfstatat(4, "", {st_mode=S_IFDIR|0755, st_size=4096, ...}, AT_EMPTY_PATH) = 0
+getdents64(4, 0x5c7a2dfd7b50 /* 2 entries */, 32768) = 48
+getdents64(4, 0x5c7a2dfd7b50 /* 0 entries */, 32768) = 0
+close(4)                                = 0
+getpid()                                = 638
+getpid()                                = 638
+read(3, "", 4096)                       = 0
+close(3)                                = 0
+socket(AF_UNIX, SOCK_STREAM|SOCK_CLOEXEC|SOCK_NONBLOCK, 0) = 3
+connect(3, {sa_family=AF_UNIX, sun_path="/var/run/nscd/socket"}, 110) = -1 ENOENT (No such file or directory)
+close(3)                                = 0
+socket(AF_UNIX, SOCK_STREAM|SOCK_CLOEXEC|SOCK_NONBLOCK, 0) = 3
+connect(3, {sa_family=AF_UNIX, sun_path="/var/run/nscd/socket"}, 110) = -1 ENOENT (No such file or directory)
+close(3)                                = 0
+newfstatat(AT_FDCWD, "/etc/nsswitch.conf", {st_mode=S_IFREG|0644, st_size=510, ...}, 0) = 0
+openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=27008, ...}, AT_EMPTY_PATH) = 0
+mmap(NULL, 27008, PROT_READ, MAP_PRIVATE, 3, 0) = 0x79b3c245a000
+close(3)                                = 0
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/glibc-hwcaps/x86-64-v3/libnss_db.so.2", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/lib/x86_64-linux-gnu/glibc-hwcaps/x86-64-v3", 0x7ffc157abec0, 0) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/glibc-hwcaps/x86-64-v2/libnss_db.so.2", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/lib/x86_64-linux-gnu/glibc-hwcaps/x86-64-v2", 0x7ffc157abec0, 0) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/tls/haswell/x86_64/libnss_db.so.2", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/lib/x86_64-linux-gnu/tls/haswell/x86_64", 0x7ffc157abec0, 0) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/tls/haswell/libnss_db.so.2", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/lib/x86_64-linux-gnu/tls/haswell", 0x7ffc157abec0, 0) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/tls/x86_64/libnss_db.so.2", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/lib/x86_64-linux-gnu/tls/x86_64", 0x7ffc157abec0, 0) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/tls/libnss_db.so.2", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/lib/x86_64-linux-gnu/tls", 0x7ffc157abec0, 0) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/haswell/x86_64/libnss_db.so.2", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/lib/x86_64-linux-gnu/haswell/x86_64", 0x7ffc157abec0, 0) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/haswell/libnss_db.so.2", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/lib/x86_64-linux-gnu/haswell", 0x7ffc157abec0, 0) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/x86_64/libnss_db.so.2", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/lib/x86_64-linux-gnu/x86_64", 0x7ffc157abec0, 0) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libnss_db.so.2", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/lib/x86_64-linux-gnu", {st_mode=S_IFDIR|0755, st_size=36864, ...}, 0) = 0
+openat(AT_FDCWD, "/usr/lib/x86_64-linux-gnu/glibc-hwcaps/x86-64-v3/libnss_db.so.2", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/usr/lib/x86_64-linux-gnu/glibc-hwcaps/x86-64-v3", 0x7ffc157abec0, 0) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/x86_64-linux-gnu/glibc-hwcaps/x86-64-v2/libnss_db.so.2", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/usr/lib/x86_64-linux-gnu/glibc-hwcaps/x86-64-v2", 0x7ffc157abec0, 0) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/x86_64-linux-gnu/tls/haswell/x86_64/libnss_db.so.2", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/usr/lib/x86_64-linux-gnu/tls/haswell/x86_64", 0x7ffc157abec0, 0) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/x86_64-linux-gnu/tls/haswell/libnss_db.so.2", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/usr/lib/x86_64-linux-gnu/tls/haswell", 0x7ffc157abec0, 0) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/x86_64-linux-gnu/tls/x86_64/libnss_db.so.2", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/usr/lib/x86_64-linux-gnu/tls/x86_64", 0x7ffc157abec0, 0) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/x86_64-linux-gnu/tls/libnss_db.so.2", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/usr/lib/x86_64-linux-gnu/tls", 0x7ffc157abec0, 0) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/x86_64-linux-gnu/haswell/x86_64/libnss_db.so.2", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/usr/lib/x86_64-linux-gnu/haswell/x86_64", 0x7ffc157abec0, 0) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/x86_64-linux-gnu/haswell/libnss_db.so.2", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/usr/lib/x86_64-linux-gnu/haswell", 0x7ffc157abec0, 0) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/x86_64-linux-gnu/x86_64/libnss_db.so.2", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/usr/lib/x86_64-linux-gnu/x86_64", 0x7ffc157abec0, 0) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/x86_64-linux-gnu/libnss_db.so.2", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/usr/lib/x86_64-linux-gnu", {st_mode=S_IFDIR|0755, st_size=36864, ...}, 0) = 0
+openat(AT_FDCWD, "/lib/glibc-hwcaps/x86-64-v3/libnss_db.so.2", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/lib/glibc-hwcaps/x86-64-v3", 0x7ffc157abec0, 0) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/lib/glibc-hwcaps/x86-64-v2/libnss_db.so.2", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/lib/glibc-hwcaps/x86-64-v2", 0x7ffc157abec0, 0) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/lib/tls/haswell/x86_64/libnss_db.so.2", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/lib/tls/haswell/x86_64", 0x7ffc157abec0, 0) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/lib/tls/haswell/libnss_db.so.2", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/lib/tls/haswell", 0x7ffc157abec0, 0) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/lib/tls/x86_64/libnss_db.so.2", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/lib/tls/x86_64", 0x7ffc157abec0, 0) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/lib/tls/libnss_db.so.2", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/lib/tls", 0x7ffc157abec0, 0) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/lib/haswell/x86_64/libnss_db.so.2", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/lib/haswell/x86_64", 0x7ffc157abec0, 0) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/lib/haswell/libnss_db.so.2", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/lib/haswell", 0x7ffc157abec0, 0) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/lib/x86_64/libnss_db.so.2", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/lib/x86_64", 0x7ffc157abec0, 0) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/lib/libnss_db.so.2", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/lib", {st_mode=S_IFDIR|0755, st_size=4096, ...}, 0) = 0
+openat(AT_FDCWD, "/usr/lib/glibc-hwcaps/x86-64-v3/libnss_db.so.2", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/usr/lib/glibc-hwcaps/x86-64-v3", 0x7ffc157abec0, 0) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/glibc-hwcaps/x86-64-v2/libnss_db.so.2", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/usr/lib/glibc-hwcaps/x86-64-v2", 0x7ffc157abec0, 0) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/tls/haswell/x86_64/libnss_db.so.2", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/usr/lib/tls/haswell/x86_64", 0x7ffc157abec0, 0) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/tls/haswell/libnss_db.so.2", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/usr/lib/tls/haswell", 0x7ffc157abec0, 0) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/tls/x86_64/libnss_db.so.2", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/usr/lib/tls/x86_64", 0x7ffc157abec0, 0) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/tls/libnss_db.so.2", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/usr/lib/tls", 0x7ffc157abec0, 0) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/haswell/x86_64/libnss_db.so.2", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/usr/lib/haswell/x86_64", 0x7ffc157abec0, 0) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/haswell/libnss_db.so.2", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/usr/lib/haswell", 0x7ffc157abec0, 0) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/x86_64/libnss_db.so.2", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/usr/lib/x86_64", 0x7ffc157abec0, 0) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/libnss_db.so.2", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/usr/lib", {st_mode=S_IFDIR|0755, st_size=4096, ...}, 0) = 0
+munmap(0x79b3c245a000, 27008)           = 0
+openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=27008, ...}, AT_EMPTY_PATH) = 0
+mmap(NULL, 27008, PROT_READ, MAP_PRIVATE, 3, 0) = 0x79b3c245a000
+close(3)                                = 0
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libnss_db-2.35.so", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/x86_64-linux-gnu/libnss_db-2.35.so", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/lib/libnss_db-2.35.so", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/usr/lib/libnss_db-2.35.so", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+munmap(0x79b3c245a000, 27008)           = 0
+openat(AT_FDCWD, "/etc/services", O_RDONLY|O_CLOEXEC) = 3
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=12813, ...}, AT_EMPTY_PATH) = 0
+lseek(3, 0, SEEK_SET)                   = 0
+read(3, "# Network services, Internet sty"..., 4096) = 4096
+close(3)                                = 0
+getpid()                                = 638
+ioctl(0, TCGETS, {B38400 opost isig icanon echo ...}) = 0
+uname({sysname="Linux", nodename="LAPTOP-AT5I939M", ...}) = 0
+getuid()                                = 1003
+newfstatat(AT_FDCWD, "/etc/nsswitch.conf", {st_mode=S_IFREG|0644, st_size=510, ...}, 0) = 0
+openat(AT_FDCWD, "/etc/passwd", O_RDONLY|O_CLOEXEC) = 3
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=1644, ...}, AT_EMPTY_PATH) = 0
+lseek(3, 0, SEEK_SET)                   = 0
+read(3, "root:x:0:0:root:/root:/bin/bash\n"..., 4096) = 1644
+close(3)                                = 0
+getpid()                                = 638
+getuid()                                = 1003
+newfstatat(AT_FDCWD, "/etc/nsswitch.conf", {st_mode=S_IFREG|0644, st_size=510, ...}, 0) = 0
+openat(AT_FDCWD, "/etc/passwd", O_RDONLY|O_CLOEXEC) = 3
+newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=1644, ...}, AT_EMPTY_PATH) = 0
+lseek(3, 0, SEEK_SET)                   = 0
+read(3, "root:x:0:0:root:/root:/bin/bash\n"..., 4096) = 1644
+close(3)                                = 0
+getpid()                                = 638
+getpid()                                = 638
+getpid()                                = 638
+socket(AF_INET, SOCK_STREAM, IPPROTO_TCP) = 3
+fcntl(3, F_SETFD, FD_CLOEXEC)           = 0
+getsockname(3, {sa_family=AF_INET, sin_port=htons(0), sin_addr=inet_addr("0.0.0.0")}, [128 => 16]) = 0
+getpid()                                = 638
+setsockopt(3, SOL_IP, IP_TOS, [16], 4)  = 0
+connect(3, {sa_family=AF_INET, sin_port=htons(22), sin_addr=inet_addr("174.0.250.88")}, 16) = 0
+getpid()                                = 638
+setsockopt(3, SOL_SOCKET, SO_KEEPALIVE, [1], 4) = 0
+getpeername(3, {sa_family=AF_INET, sin_port=htons(22), sin_addr=inet_addr("174.0.250.88")}, [128 => 16]) = 0
+getpeername(3, {sa_family=AF_INET, sin_port=htons(22), sin_addr=inet_addr("174.0.250.88")}, [128 => 16]) = 0
+getsockname(3, {sa_family=AF_INET, sin_port=htons(44038), sin_addr=inet_addr("172.18.242.100")}, [128 => 16]) = 0
+getsockname(3, {sa_family=AF_INET, sin_port=htons(44038), sin_addr=inet_addr("172.18.242.100")}, [128 => 16]) = 0
+getuid()                                = 1003
+newfstatat(AT_FDCWD, "/etc/nsswitch.conf", {st_mode=S_IFREG|0644, st_size=510, ...}, 0) = 0
+openat(AT_FDCWD, "/etc/passwd", O_RDONLY|O_CLOEXEC) = 4
+newfstatat(4, "", {st_mode=S_IFREG|0644, st_size=1644, ...}, AT_EMPTY_PATH) = 0
+lseek(4, 0, SEEK_SET)                   = 0
+read(4, "root:x:0:0:root:/root:/bin/bash\n"..., 4096) = 1644
+close(4)                                = 0
+openat(AT_FDCWD, "/home/x/.ssh/id_rsa", O_RDONLY) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/home/x/.ssh/id_rsa.pub", O_RDONLY) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/home/x/.ssh/id_rsa", O_RDONLY) = -1 ENOENT (No such file or directory)
+getpid()                                = 638
+openat(AT_FDCWD, "/home/x/.ssh/id_rsa-cert", O_RDONLY) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/home/x/.ssh/id_rsa-cert.pub", O_RDONLY) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/home/x/.ssh/id_rsa-cert", O_RDONLY) = -1 ENOENT (No such file or directory)
+getpid()                                = 638
+getuid()                                = 1003
+newfstatat(AT_FDCWD, "/etc/nsswitch.conf", {st_mode=S_IFREG|0644, st_size=510, ...}, 0) = 0
+openat(AT_FDCWD, "/etc/passwd", O_RDONLY|O_CLOEXEC) = 4
+newfstatat(4, "", {st_mode=S_IFREG|0644, st_size=1644, ...}, AT_EMPTY_PATH) = 0
+lseek(4, 0, SEEK_SET)                   = 0
+read(4, "root:x:0:0:root:/root:/bin/bash\n"..., 4096) = 1644
+close(4)                                = 0
+openat(AT_FDCWD, "/home/x/.ssh/id_ecdsa", O_RDONLY) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/home/x/.ssh/id_ecdsa.pub", O_RDONLY) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/home/x/.ssh/id_ecdsa", O_RDONLY) = -1 ENOENT (No such file or directory)
+getpid()                                = 638
+openat(AT_FDCWD, "/home/x/.ssh/id_ecdsa-cert", O_RDONLY) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/home/x/.ssh/id_ecdsa-cert.pub", O_RDONLY) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/home/x/.ssh/id_ecdsa-cert", O_RDONLY) = -1 ENOENT (No such file or directory)
+getpid()                                = 638
+getuid()                                = 1003
+newfstatat(AT_FDCWD, "/etc/nsswitch.conf", {st_mode=S_IFREG|0644, st_size=510, ...}, 0) = 0
+openat(AT_FDCWD, "/etc/passwd", O_RDONLY|O_CLOEXEC) = 4
+newfstatat(4, "", {st_mode=S_IFREG|0644, st_size=1644, ...}, AT_EMPTY_PATH) = 0
+lseek(4, 0, SEEK_SET)                   = 0
+read(4, "root:x:0:0:root:/root:/bin/bash\n"..., 4096) = 1644
+close(4)                                = 0
+openat(AT_FDCWD, "/home/x/.ssh/id_ecdsa_sk", O_RDONLY) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/home/x/.ssh/id_ecdsa_sk.pub", O_RDONLY) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/home/x/.ssh/id_ecdsa_sk", O_RDONLY) = -1 ENOENT (No such file or directory)
+getpid()                                = 638
+openat(AT_FDCWD, "/home/x/.ssh/id_ecdsa_sk-cert", O_RDONLY) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/home/x/.ssh/id_ecdsa_sk-cert.pub", O_RDONLY) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/home/x/.ssh/id_ecdsa_sk-cert", O_RDONLY) = -1 ENOENT (No such file or directory)
+getpid()                                = 638
+getuid()                                = 1003
+newfstatat(AT_FDCWD, "/etc/nsswitch.conf", {st_mode=S_IFREG|0644, st_size=510, ...}, 0) = 0
+openat(AT_FDCWD, "/etc/passwd", O_RDONLY|O_CLOEXEC) = 4
+newfstatat(4, "", {st_mode=S_IFREG|0644, st_size=1644, ...}, AT_EMPTY_PATH) = 0
+lseek(4, 0, SEEK_SET)                   = 0
+read(4, "root:x:0:0:root:/root:/bin/bash\n"..., 4096) = 1644
+close(4)                                = 0
+openat(AT_FDCWD, "/home/x/.ssh/id_ed25519", O_RDONLY) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/home/x/.ssh/id_ed25519.pub", O_RDONLY) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/home/x/.ssh/id_ed25519", O_RDONLY) = -1 ENOENT (No such file or directory)
+getpid()                                = 638
+openat(AT_FDCWD, "/home/x/.ssh/id_ed25519-cert", O_RDONLY) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/home/x/.ssh/id_ed25519-cert.pub", O_RDONLY) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/home/x/.ssh/id_ed25519-cert", O_RDONLY) = -1 ENOENT (No such file or directory)
+getpid()                                = 638
+getuid()                                = 1003
+newfstatat(AT_FDCWD, "/etc/nsswitch.conf", {st_mode=S_IFREG|0644, st_size=510, ...}, 0) = 0
+openat(AT_FDCWD, "/etc/passwd", O_RDONLY|O_CLOEXEC) = 4
+newfstatat(4, "", {st_mode=S_IFREG|0644, st_size=1644, ...}, AT_EMPTY_PATH) = 0
+lseek(4, 0, SEEK_SET)                   = 0
+read(4, "root:x:0:0:root:/root:/bin/bash\n"..., 4096) = 1644
+close(4)                                = 0
+openat(AT_FDCWD, "/home/x/.ssh/id_ed25519_sk", O_RDONLY) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/home/x/.ssh/id_ed25519_sk.pub", O_RDONLY) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/home/x/.ssh/id_ed25519_sk", O_RDONLY) = -1 ENOENT (No such file or directory)
+getpid()                                = 638
+openat(AT_FDCWD, "/home/x/.ssh/id_ed25519_sk-cert", O_RDONLY) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/home/x/.ssh/id_ed25519_sk-cert.pub", O_RDONLY) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/home/x/.ssh/id_ed25519_sk-cert", O_RDONLY) = -1 ENOENT (No such file or directory)
+getpid()                                = 638
+getuid()                                = 1003
+newfstatat(AT_FDCWD, "/etc/nsswitch.conf", {st_mode=S_IFREG|0644, st_size=510, ...}, 0) = 0
+openat(AT_FDCWD, "/etc/passwd", O_RDONLY|O_CLOEXEC) = 4
+newfstatat(4, "", {st_mode=S_IFREG|0644, st_size=1644, ...}, AT_EMPTY_PATH) = 0
+lseek(4, 0, SEEK_SET)                   = 0
+read(4, "root:x:0:0:root:/root:/bin/bash\n"..., 4096) = 1644
+close(4)                                = 0
+openat(AT_FDCWD, "/home/x/.ssh/id_xmss", O_RDONLY) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/home/x/.ssh/id_xmss.pub", O_RDONLY) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/home/x/.ssh/id_xmss", O_RDONLY) = -1 ENOENT (No such file or directory)
+getpid()                                = 638
+openat(AT_FDCWD, "/home/x/.ssh/id_xmss-cert", O_RDONLY) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/home/x/.ssh/id_xmss-cert.pub", O_RDONLY) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/home/x/.ssh/id_xmss-cert", O_RDONLY) = -1 ENOENT (No such file or directory)
+getpid()                                = 638
+getuid()                                = 1003
+newfstatat(AT_FDCWD, "/etc/nsswitch.conf", {st_mode=S_IFREG|0644, st_size=510, ...}, 0) = 0
+openat(AT_FDCWD, "/etc/passwd", O_RDONLY|O_CLOEXEC) = 4
+newfstatat(4, "", {st_mode=S_IFREG|0644, st_size=1644, ...}, AT_EMPTY_PATH) = 0
+lseek(4, 0, SEEK_SET)                   = 0
+read(4, "root:x:0:0:root:/root:/bin/bash\n"..., 4096) = 1644
+close(4)                                = 0
+openat(AT_FDCWD, "/home/x/.ssh/id_dsa", O_RDONLY) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/home/x/.ssh/id_dsa.pub", O_RDONLY) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/home/x/.ssh/id_dsa", O_RDONLY) = -1 ENOENT (No such file or directory)
+getpid()                                = 638
+openat(AT_FDCWD, "/home/x/.ssh/id_dsa-cert", O_RDONLY) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/home/x/.ssh/id_dsa-cert.pub", O_RDONLY) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/home/x/.ssh/id_dsa-cert", O_RDONLY) = -1 ENOENT (No such file or directory)
+getpid()                                = 638
+getuid()                                = 1003
+getuid()                                = 1003
+getuid()                                = 1003
+getuid()                                = 1003
+rt_sigaction(SIGPIPE, {sa_handler=SIG_IGN, sa_mask=~[RTMIN RT_1], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x79b3c1c42520}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigaction(SIGCHLD, {sa_handler=0x5c7a1b7bdde0, sa_mask=~[RTMIN RT_1], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x79b3c1c42520}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+write(3, "SSH-2.0-OpenSSH_8.9p1 Ubuntu-3ub"..., 42) = 42
+getpid()                                = 638
+read(3, "S", 1)                         = 1
+read(3, "S", 1)                         = 1
+read(3, "H", 1)                         = 1
+read(3, "-", 1)                         = 1
+read(3, "2", 1)                         = 1
+read(3, ".", 1)                         = 1
+read(3, "0", 1)                         = 1
+read(3, "-", 1)                         = 1
+read(3, "O", 1)                         = 1
+read(3, "p", 1)                         = 1
+read(3, "e", 1)                         = 1
+read(3, "n", 1)                         = 1
+read(3, "S", 1)                         = 1
+read(3, "S", 1)                         = 1
+read(3, "H", 1)                         = 1
+read(3, "_", 1)                         = 1
+read(3, "7", 1)                         = 1
+read(3, ".", 1)                         = 1
+read(3, "4", 1)                         = 1
+read(3, "\r", 1)                        = 1
+read(3, "\n", 1)                        = 1
+getpid()                                = 638
+getpid()                                = 638
+fcntl(3, F_GETFL)                       = 0x2 (flags O_RDWR)
+getpid()                                = 638
+fcntl(3, F_SETFL, O_RDWR|O_NONBLOCK)    = 0
+getpid()                                = 638
+openat(AT_FDCWD, "/home/x/.ssh/known_hosts", O_RDONLY) = 4
+newfstatat(4, "", {st_mode=S_IFREG|0600, st_size=364, ...}, AT_EMPTY_PATH) = 0
+read(4, "|1|MNtmJ721PiohYFAydoAetkQIUWA=|"..., 4096) = 364
+getpid()                                = 638
+getpid()                                = 638
+read(4, "", 4096)                       = 0
+getpid()                                = 638
+close(4)                                = 0
+openat(AT_FDCWD, "/home/x/.ssh/known_hosts2", O_RDONLY) = -1 ENOENT (No such file or directory)
+getpid()                                = 638
+openat(AT_FDCWD, "/etc/ssh/ssh_known_hosts", O_RDONLY) = -1 ENOENT (No such file or directory)
+getpid()                                = 638
+openat(AT_FDCWD, "/etc/ssh/ssh_known_hosts2", O_RDONLY) = -1 ENOENT (No such file or directory)
+getpid()                                = 638
+getpid()                                = 638
+getpid()                                = 638
+getpid()                                = 638
+getpid()                                = 638
+write(3, "\0\0\5\374\7\24\245\17\375\246\265\240\24\346:\205\337)h\331\354(\0\0\0011curve2"..., 1536) = 1536
+ppoll([{fd=3, events=POLLIN}], 1, NULL, NULL, 8) = 1 ([{fd=3, revents=POLLIN}])
+read(3, "\0\0\4\374\n\24\214f*ku-p=\317\254=\20\376C\322\30\0\0\1@curve2"..., 8192) = 1280
+getpid()                                = 638
+getpid()                                = 638
+getpid()                                = 638
+getpid()                                = 638
+getpid()                                = 638
+getpid()                                = 638
+getpid()                                = 638
+getpid()                                = 638
+getpid()                                = 638
+getpid()                                = 638
+getpid()                                = 638
+getpid()                                = 638
+getpid()                                = 638
+getpid()                                = 638
+getpid()                                = 638
+getpid()                                = 638
+getpid()                                = 638
+getpid()                                = 638
+getpid()                                = 638
+getpid()                                = 638
+getpid()                                = 638
+getpid()                                = 638
+getpid()                                = 638
+getpid()                                = 638
+getpid()                                = 638
+getpid()                                = 638
+getpid()                                = 638
+getpid()                                = 638
+getpid()                                = 638
+getpid()                                = 638
+getpid()                                = 638
+getpid()                                = 638
+getpid()                                = 638
+getpid()                                = 638
+getpid()                                = 638
+write(3, "\0\0\0,\6\36\0\0\0 \376\273\263\253\r\376~\265\353+\301\234\327V\220\0\272\321j\177\233L"..., 48) = 48
+ppoll([{fd=3, events=POLLIN}], 1, NULL, NULL, 8^C) = ? ERESTARTNOHAND (To be restarted if no handler)
+strace: Process 638 detached
