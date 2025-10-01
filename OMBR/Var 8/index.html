@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <title>Ordinal Game - 垂直布局</title>
+	    <style>
+	        * {
+	            box-sizing: border-box;
+	            margin: 0;
+	            padding: 0;
+	        }
+	        
+	        body {
+	            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	            background-color: #1a1a2e;
+	            color: #e6e6e6;
+	            line-height: 1.6;
+	            padding: 20px;
+	            min-height: 100vh;
+	        }
+	        
+	        .container {
+	            width: 1500px;
+	            margin: 0 auto;
+	        }
+	        
+	        .header {
+	            text-align: center;
+	            margin-bottom: 30px;
+	            padding: 20px;
+	            background: linear-gradient(145deg, #0f3460, #1a1a2e);
+	            border-radius: 10px;
+	            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+	        }
+	        
+	        .header h1 {
+	            color: #ffd166;
+	            font-size: 2.5rem;
+	            margin-bottom: 10px;
+	            text-shadow: 0 0 10px rgba(255, 209, 102, 0.5);
+	        }
+	        
+	        .header p {
+	            color: #b8c7d9;
+	            font-size: 1.1rem;
+	        }
+	        
+	        /* 垂直主Tab样式 */
+	        .main-tab {
+	            background-color: rgba(255, 255, 255, 0.05);
+	            border-radius: 10px;
+	            border: 1px solid rgba(255, 255, 255, 0.1);
+	            margin-bottom: 20px;
+	            overflow: hidden;
+	        }
+	        
+	        .main-tab-title {
+	            background: linear-gradient(145deg, #0f3460, #1a1a2e);
+	            color: #ffd166;
+	            padding: 15px 20px;
+	            font-size: 1.3rem;
+	            font-weight: 600;
+	            cursor: pointer;
+	            display: flex;
+	            justify-content: space-between;
+	            align-items: center;
+	            transition: all 0.3s ease;
+	        }
+	        
+	        .main-tab-title:hover {
+	            background: linear-gradient(145deg, #1a3a5f, #0d2b4e);
+	        }
+	        
+	        .main-tab-content {
+	            padding: 20px;
+	            display: block;
+	        }
+	        
+	        /* 子Tab样式 */
+	        .subtab-container {
+	            margin-top: 15px;
+	        }
+	        
+	        .subtab-content {
+	            padding: 15px;
+	            background-color: rgba(255, 255, 255, 0.03);
+	            border-radius: 8px;
+	            border: 1px solid rgba(255, 255, 255, 0.1);
+	            margin-bottom: 15px;
+	        }
+	        
+	        .subtab-title {
+	            font-size: 18px;
+	            font-weight: bold;
+	            color: #ffd166;
+	            margin-bottom: 15px;
+	            padding-bottom: 8px;
+	            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	        }
+	        
+	        /* 按钮样式 */
+	        button {
+	            background: linear-gradient(145deg, #2d4059, #1e2a3a);
+	            color: #ffffff;
+	            border: none;
+	            border-radius: 8px;
+	            padding: 12px 20px;
+	            margin: 5px;
+	            cursor: pointer;
+	            font-size: 14px;
+	            font-weight: 500;
+	            transition: all 0.3s ease;
+	            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+	            min-width: 120px;
+	        }
+	        
+	        button:hover {
+	            background: linear-gradient(145deg, #3a516d, #2a3a4d);
+	            transform: translateY(-2px);
+	            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+	        }
+	        
+	        button:active {
+	            transform: translateY(0);
+	            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+	        }
+	        
+	        button p {
+	            margin: 0;
+	            font-weight: 600;
+	        }
+	        
+	        /* 特殊元素样式 */
+	        #CurrentOrdinal {
+	            font-size: 24px;
+	            font-weight: bold;
+	            color: #ffd166;
+	            text-shadow: 0 0 10px rgba(255, 209, 102, 0.5);
+	        }
+	        
+	        a[id^="SpeedAutomation"] {
+	            font-size: 18px;
+	            font-weight: bold;
+	            color: #06d6a0;
+	        }
+	        
+	        a[id$="Multiply"] {
+	            color: #ef476f;
+	        }
+	        
+	        a[id$="UpgradNeed"] {
+	            color: #118ab2;
+	            font-weight: bold;
+	        }
+	        
+	        sup {
+	            font-size: 0.8em;
+	            vertical-align: super;
+	        }
+	        
+	        #MarkupFor1Need, #MarkupFor10Need {
+	            color: #ff9e00;
+	            font-weight: bold;
+	        }
+	        
+	        /* 自动化容器样式 */
+	        .automation-container {
+	            display: flex;
+	            justify-content: space-between;
+	            align-items: center;
+	            flex-wrap: wrap;
+	        }
+	        
+	        .automation-info {
+	            flex: 1;
+	            min-width: 200px;
+	        }
+	        
+	        .automation-upgrade {
+	            margin-left: 15px;
+	        }
+	        
+	        .points-display {
+	            display: flex;
+	            flex-wrap: wrap;
+	            gap: 15px;
+	        }
+	        
+	        .point-item {
+	            flex: 1;
+	            min-width: 150px;
+	            background: rgba(255, 255, 255, 0.05);
+	            border-radius: 8px;
+	            padding: 10px;
+	            text-align: center;
+	        }
+	        
+	        .point-value {
+	            font-size: 18px;
+	            font-weight: bold;
+	            color: #ffd166;
+	            margin-top: 5px;
+	        }
+	        
+	        /* 响应式设计 */
+	        @media (max-width: 768px) {
+	            body {
+	                padding: 10px;
+	            }
+	            
+	            button {
+	                width: 100%;
+	                margin: 5px 0;
+	            }
+	            
+	            #CurrentOrdinal {
+	                font-size: 20px;
+	            }
+	            
+	            .automation-container {
+	                flex-direction: column;
+	                align-items: flex-start;
+	            }
+	            
+	            .automation-upgrade {
+	                margin-left: 0;
+	                margin-top: 10px;
+	            }
+	        }
+	        
+	        /* 折叠指示器 */
+	        .collapse-indicator {
+	            transition: transform 0.3s ease;
+	        }
+	        
+	        .main-tab.collapsed .collapse-indicator {
+	            transform: rotate(-90deg);
+	        }
+	        
+	        .main-tab.collapsed .main-tab-content {
+	            display: none;
+	        }
+	    </style>
+	</head>
+	<body>
+	    <div class="container">
+	        <div class="header">
+	            <h1>Ordinal Markup (Bowen Remake!)</h1>
+	        </div>
+	        
+	        <!-- Ordinal Tab -->
+	        <div class="main-tab">
+	            <div class="main-tab-title" onclick="toggleTab(this)">
+	                <span>Ordinal Management</span>
+	                <span class="collapse-indicator">▼</span>
+	            </div>
+	            <div class="main-tab-content">
+	                <div>
+	                    Current Ordinal:
+	                    <a id="CurrentOrdinal">
+	                        0
+	                    </a>
+	                </div>
+	                
+	                <!-- 子Tab系统 -->
+	                <div class="subtab-container">
+	                    <!-- Basic 子Tab -->
+	                    <div class="subtab-content">
+	                        <div class="subtab-title">Basic Operations</div>
+	                        <div>
+	                            <div>
+	                                <button onclick="Increase()">
+	                                    <p>
+	                                        Ordinal +1
+	                                    </p>
+	                                </button>
+	                                <button onclick="AbleDisableAutomation()">
+	                                    <p>
+	                                        Able/Disable Automation
+	                                    </p>
+	                                </button>
+	                            </div>
+	                        </div>
+	                    </div>
+	                    
+	                    <!-- Automation 子Tab -->
+	                    <div class="subtab-content">
+	                        <div class="subtab-title">Automation</div>
+	                        <div class="automation-container">
+	                        	<div>
+		                            <div>
+		                                <div class="automation-info">
+		                                    Speed Of Automation A:
+		                                    <a id="SpeedAutomationA">
+		                                        0
+		                                    </a>
+		                                     (*<a id="SpeedAutomationAMultiply">0</a>)
+		                                </div>
+		                                <div class="automation-upgrade">
+		                                    Upgrade: 
+		                                    <button onclick="SpeedAutomationAUpgrade()">
+		                                        <div>
+		                                            Need:
+		                                            <a id="SpeedAutomationAUpgradNeed">
+		                                                ω<sup>2</sup> 
+		                                            </a>
+		                                        </div>
+		                                    </button>
+		                                </div>
+		                            </div>
+		                            <div>
+		                                <div class="automation-info">
+		                                    Speed Of Automation B:
+		                                    <a id="SpeedAutomationB">
+		                                        0
+		                                    </a>
+		                                     (*<a id="SpeedAutomationBMultiply">0</a>)
+		                                </div>
+		                                <div class="automation-upgrade">
+		                                    Upgrade: 
+		                                    <button onclick="SpeedAutomationBUpgrade()">
+		                                        <div>
+		                                            Need:
+		                                            <a id="SpeedAutomationBUpgradNeed">
+		                                                ω<sup>ω</sup> 
+		                                            </a>
+		                                        </div>
+		                                    </button>
+		                                </div>
+		                            </div>
+		                        </div>
+		                    	<div> 
+			                        <div class="automation-info"> 
+		                                <div class="automation-info">
+		                                    Speed Of Automation C:
+		                                    <a id="SpeedAutomationC">
+		                                        0
+		                                    </a>
+		                                     (*<a id="SpeedAutomationCMultiply">0</a>)
+		                                </div>
+		                                <div class="automation-upgrade">
+		                                    Upgrade: 
+		                                    <button onclick="SpeedAutomationCUpgrade()">
+		                                        <div>
+		                                            Need:
+		                                            <a id="SpeedAutomationCUpgradNeed">
+		                                                ω<sup>ω+3</sup> 
+		                                            </a>
+		                                        </div>
+		                                    </button>
+		                                </div>
+		                            </div>
+		                            <div>
+		                                <div class="automation-info">
+		                                    Speed Of Automation D:
+		                                    <a id="SpeedAutomationD">
+		                                        0
+		                                    </a>
+		                                     (*<a id="SpeedAutomationDMultiply">0</a>)
+		                                </div>
+		                                <div class="automation-upgrade">
+		                                    Upgrade: 
+		                                    <button onclick="SpeedAutomationDUpgrade()">
+		                                        <div>
+		                                            Need:
+		                                            <a id="SpeedAutomationDUpgradNeed">
+		                                                ω<sup>ω3</sup> 
+		                                            </a>
+		                                        </div>
+		                                    </button>
+		                                </div>
+		                            </div>
+		                        </div> 
+	                        </div>
+	                        <div>
+	                            Automation run 5 times/sec.
+	                        </div>
+	                    </div>
+	                    
+	                    <!-- Points 子Tab -->
+	                    <div class="subtab-content">
+	                        <div>
+	                            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+	                                <button onclick="Markup1()">
+	                                    Reach <a id="MarkupFor1Need">ω<sup>ω<sup>2</sup></sup></a> to Reset for 1 op
+	                                </button>
+	                                <button onclick="Markup10()">
+	                                    Reach <a id="MarkupFor10Need">ω<sup>ω<sup>2</sup>+ω</sup></a> to Reset for 10 op
+	                                </button>
+	                            </div>
+	                        </div>
+	                        <div class="subtab-title">Points</div>
+	                        <div class="points-display">
+	                            <div class="point-item">
+	                                <a>Ordinal Points</a>
+	                                <a class="point-value" id="OrdinalPoints">0</a>
+	                            </div>
+	                        </div>
+	                        <div style="margin-top: 15px;">
+	                            <button onclick="">
+	                                Nothing
+	                            </button>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	        
+	        <!-- Setting Tab -->
+	        <div class="main-tab">
+	            <div class="main-tab-title" onclick="toggleTab(this)">
+	                <span>Game Settings</span>
+	                <span class="collapse-indicator">▼</span>
+	            </div>
+	            <div class="main-tab-content">
+	                <h3>Game Settings</h3>
+	                <div>
+	                    <button onclick="SaveSerializableVariablesToClipboardX()"> 
+	                        Save file
+	                    </button>
+	                    <button onclick="LoadSerializableVariablesFromClipboard()">
+	                        Load file
+	                    </button>
+	                    <button onclick="LoadSerializableVariablesFromLocalStorage()">
+	                        Load from Localstorage
+	                        <div>(<a id="SimulateLeftFrame">0</a> Frames left.) 
+	                    </button>
+	                    <button onclick="DELETEALL()">
+	                        DELETEALL PROGRASS
+	                    </button>
+	                </div>
+	                <h3>Statistics</h3>
+	                <div class="points-display">
+	                    <div class="point-item">
+	                        <a>Total Clicks</a>
+	                        <a class="point-value" id="TotalClicks">Unknown</a>
+	                    </div>
+	                    <div class="point-item">
+	                        <a>Time Played</a>
+	                        <a class="point-value" id="TimePlayed">Unknown</a>
+	                    </div>
+	                    <div class="point-item">
+	                        <a>Max Ordinal</a>
+	                        <a class="point-value" id="MaxOrdinalReach">Unknown</a>
+	                    </div>
+	                    <div class="point-item">
+	                        <a>Max Ordinal Level</a>
+	                        <a class="point-value" id="MaxOrdinalReachLevel">Unknown</a>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	
+	    <script>
+	        // 主Tab切换函数
+	        function toggleTab(element) {
+	            const tab = element.parentElement;
+	            tab.classList.toggle('collapsed');
+	        }
+			function EqualOrdinal(x,y){
+				if(x.length!=y.length)return false;
+				for(var i=0;i<x.length;i++){
+					if(!EqualOrdinal(x[i],y[i]))return false;
+				}
+				return true;
+			}
+			function SmallerOrdinal(x,y){
+				for(var i=0;i<y.length;i++){
+					if(i>=x.length)return true;
+					if(EqualOrdinal(x[i],y[i]))continue;
+					if(SmallerOrdinal(x[i],y[i]))return true;
+					return false;
+				}
+				return false;
+			}
+			function Swap(x,i,j){
+				var z=x[i];
+				x[i]=x[j];
+				x[j]=z;
+			}
+			function SmallerOrdinalX(x,y){
+				if(SmallerOrdinal(x,y))return 1;
+				if(EqualOrdinal(x,y))return 0;
+				return -1;
+			}
+			function AdjustOrdinal(x,NoRefresh=false){
+				for(var i=0;i<x.length;i++){
+					x[i]=AdjustOrdinal(x[i]);
+				}
+				x.sort(SmallerOrdinalX);
+				if(NoRefresh)return x;
+				var y=[];
+				for(var i=0;i<x.length;){
+					if(i+3<x.length&&EqualOrdinal(x[i],x[i+1])&&EqualOrdinal(x[i+1],x[i+2])&&EqualOrdinal(x[i+2],x[i+3])){
+						y.push(x[i].concat([[]]));
+						i+=4;
+						adjusted=1;
+					}
+					else{
+						y.push(x[i]);
+						i++;
+					}
+				}
+				return y;
+			}
+			function Sequence(x){
+				if(x.length==0)return "0"; 
+				var res="";
+				var varprinted=0;
+				for(var i=0;i<x.length;){
+					if(i!=0)res+="+";
+					var pres=Sequence(x[i]);
+					if(pres=="0"){
+					}
+					else if(pres=="1"){
+						res+="ω";
+					}
+					else{
+						res+="ω<sup>";
+						res+=pres;
+						res+="</sup>";
+					}
+					var times=1;
+					for(var j=i+1;j<x.length;j++)if(EqualOrdinal(x[i],x[j]))times++;
+					if(times!=1||pres=="0")res+=times;
+					i+=times;
+					varprinted++;
+					if(varprinted>=5){
+						res+="+...";
+						break;
+					}
+				}
+				return res;
+			}
+			function AddOrdinal(x,y,NoRefresh=false){
+				var z=x.concat(y);
+				adjusted=1;
+				z=AdjustOrdinal(z);
+				if(!NoRefresh)while(adjusted){
+					adjusted=0; 
+					z=AdjustOrdinal(z);
+				}
+				else adjusted=0;
+				z=z.slice(0, 100);
+				return z;
+			}
+			//----------------------------CONST AREA---------------------------
+			var multiplyShow=[[],[[]],[[],[]],[[[]]],[[[]],[[]]],[[[],[]]],[[[],[]],[[],[]]],[[[],[],[]]],[[[],[],[]],[[],[],[]]]];
+			var multiplyReal=[0,1,2,4,8,16,32,64,128];
+			var multiplyIncr=[[[]],[[],[]],[[[]]],[[[]],[[]]],[[[],[]]],[[[],[]],[[],[]]],[[[],[],[]]]];
+			var priceA=[[[[],[]]],[[[[]]]],[[[[]],[],[]]],[[[[]],[[]]]],[[[[]],[[]],[[]],[],[]]],[[[[],[]],[[]]]],[[[[],[]],[[]],[[]],[]]]];
+			var priceB=[[[[[]]]],[[[[]],[[]]]],[[[[]],[[]],[[]]]],[[[[],[]]]],[[[[],[]],[[]],[]]],[[[[],[]],[[]],[[]],[],[]]],[[[[],[]],[[]],[[]],[[]],[],[],[]]]];
+			var priceC=[[[[[]],[],[],[]]],[[[[]],[[]],[],[],[]]],[[[[]],[[]],[[]],[],[],[]]],[[[[],[]],[],[],[]]],[[[[],[]],[[]],[[]]]],[[[[],[]],[[]],[[]],[[]]]],[[[[],[]],[[[]]]]]];
+			var priceD=[[[[[]],[[]],[[]]]],[[[[]],[[]],[[]],[],[]]],[[[[],[]],[[]]]],[[[[],[]],[[]],[],[]]],[[[[],[]],[[]],[[]]]],[[[[],[]],[[]],[[]],[[]],[],[]]],[[[[[]]],[[[]]],[],[]]]];
+			var NeedToStore=['Cord','toAdd','speedA','speedB','speedC','speedD','AutomationAv','AhaveBuy','BhaveBuy','ChaveBuy','DhaveBuy','_timestamp'];
+			//----------------------------VAR AREA-----------------------------
+			var adjusted=0;
+			var StartAutomation=0;
+			var HaveBeginStoreProcess=0;
+			var _timestamp;
+			var SimulateLeftFrame=0;
+			var leftFrames;
+			//----------------------------PERMINENT & TEMP---------------------
+			var Cord=[];
+			var toAdd=[[]];
+			var speedA=[];
+			var speedB=[];
+			var speedC=[];
+			var speedD=[];
+			var priceTo1OP=[[[[],[]]]];
+			var priceTo10OP=[[[[],[]],[[]]]];
+			var AutomationAv=0;
+			var AhaveBuy=0;
+			var BhaveBuy=0;
+			var ChaveBuy=0;
+			var DhaveBuy=0;
+			function SaveSerializableVariablesToClipboardX(){
+				SaveSerializableVariablesToClipboard(NeedToStore);
+			}
+			function Refresh(){
+				var CurrentOrdinal=document.getElementById("CurrentOrdinal")
+				CurrentOrdinal.innerHTML=Sequence(Cord);
+				var CurrentOrdinal=document.getElementById("SimulateLeftFrame");
+				CurrentOrdinal.innerHTML=SimulateLeftFrame;
+				var CurrentOrdinal=document.getElementById("SpeedAutomationA");
+				CurrentOrdinal.innerHTML=Sequence(speedA);
+				var CurrentOrdinal=document.getElementById("SpeedAutomationB");
+				CurrentOrdinal.innerHTML=Sequence(speedB);
+				var CurrentOrdinal=document.getElementById("SpeedAutomationC");
+				CurrentOrdinal.innerHTML=Sequence(speedC);
+				var CurrentOrdinal=document.getElementById("SpeedAutomationD");
+				CurrentOrdinal.innerHTML=Sequence(speedD);
+				var CurrentOrdinal=document.getElementById("SpeedAutomationAMultiply");
+				CurrentOrdinal.innerHTML=Sequence(multiplyShow[AhaveBuy]);
+				var CurrentOrdinal=document.getElementById("SpeedAutomationBMultiply");
+				CurrentOrdinal.innerHTML=Sequence(multiplyShow[BhaveBuy]);
+				var CurrentOrdinal=document.getElementById("SpeedAutomationCMultiply");
+				CurrentOrdinal.innerHTML=Sequence(multiplyShow[ChaveBuy]);
+				var CurrentOrdinal=document.getElementById("SpeedAutomationDMultiply");
+				CurrentOrdinal.innerHTML=Sequence(multiplyShow[DhaveBuy]);
+				var CurrentOrdinal=document.getElementById("SpeedAutomationAUpgradNeed");
+				if(AhaveBuy<priceA.length)CurrentOrdinal.innerHTML=Sequence(priceA[AhaveBuy]);
+				else CurrentOrdinal.innerHTML="Infinity";
+				var CurrentOrdinal=document.getElementById("SpeedAutomationBUpgradNeed");
+				if(BhaveBuy<priceB.length)CurrentOrdinal.innerHTML=Sequence(priceB[BhaveBuy]);
+				else CurrentOrdinal.innerHTML="Infinity";
+				var CurrentOrdinal=document.getElementById("SpeedAutomationCUpgradNeed");
+				if(ChaveBuy<priceC.length)CurrentOrdinal.innerHTML=Sequence(priceC[ChaveBuy]);
+				else CurrentOrdinal.innerHTML="Infinity";
+				var CurrentOrdinal=document.getElementById("SpeedAutomationDUpgradNeed");
+				if(DhaveBuy<priceD.length)CurrentOrdinal.innerHTML=Sequence(priceD[DhaveBuy]);
+				else CurrentOrdinal.innerHTML="Infinity";
+				if(!HaveBeginStoreProcess){
+					HaveBeginStoreProcess=1;
+					LoadSerializableVariablesFromLocalStorage();
+					setInterval(()=>{
+						SaveSerializableVariablesToLocalStorage(NeedToStore);
+					},200);
+				}
+				AddOrdinal(Cord,[]);
+				AddOrdinal(speedA,[]);
+				AddOrdinal(speedB,[]);
+				AddOrdinal(speedC,[]);
+				AddOrdinal(speedD,[]);
+			}
+			Refresh();
+			function Increase(){
+				Cord=AddOrdinal(Cord,[[]]);
+				Refresh();
+			}
+			function RunAutomation(NoRefresh=false,simufsttime=0){
+				if(AutomationAv){
+					if(!EqualOrdinal(speedA,[])){
+						var C=speedA;
+						for(var i=0;i<simufsttime;i++)C=AddOrdinal(C,C,NoRefresh);
+						Cord=AddOrdinal(Cord,C,NoRefresh);
+					}
+					if(!EqualOrdinal(speedB,[])){
+						var C=speedB;
+						for(var i=0;i<simufsttime;i++)C=AddOrdinal(C,C,NoRefresh);
+						speedA=AddOrdinal(speedA,C,NoRefresh);
+					}
+					if(!EqualOrdinal(speedC,[])){
+						var C=speedC;
+						for(var i=0;i<simufsttime;i++)C=AddOrdinal(C,C,NoRefresh);
+						speedB=AddOrdinal(speedB,C,NoRefresh);
+					}
+					if(!EqualOrdinal(speedD,[])){
+						var C=speedD;
+						for(var i=0;i<simufsttime;i++)C=AddOrdinal(C,C,NoRefresh);
+						speedC=AddOrdinal(speedC,C,NoRefresh);
+					}
+				}
+				if(!NoRefresh)Refresh();
+			}
+			function AbleDisableAutomation(){
+				if(!StartAutomation){
+					StartAutomation=true;
+					setInterval(()=>{
+						RunAutomation();
+					},200);
+				}
+				AutomationAv=1-AutomationAv;
+			}
+			function SpeedAutomationAUpgrade(){
+				if(SmallerOrdinal(priceA[AhaveBuy],Cord)){
+					speedA=AddOrdinal(speedA,multiplyIncr[AhaveBuy]);
+					AhaveBuy++;
+					Refresh();
+				}
+			}
+			function SpeedAutomationBUpgrade(){
+				if(SmallerOrdinal(priceB[BhaveBuy],Cord)){
+					speedB=AddOrdinal(speedB,multiplyIncr[BhaveBuy]);
+					BhaveBuy++;
+					Refresh();
+				}
+			}
+			function SpeedAutomationCUpgrade(){
+				if(SmallerOrdinal(priceC[ChaveBuy],Cord)){
+					speedC=AddOrdinal(speedC,multiplyIncr[ChaveBuy]);
+					ChaveBuy++;
+					Refresh();
+				}
+			}
+			function SpeedAutomationDUpgrade(){
+				if(SmallerOrdinal(priceD[DhaveBuy],Cord)){
+					speedD=AddOrdinal(speedD,multiplyIncr[DhaveBuy]);
+					DhaveBuy++;
+					Refresh();
+				}
+			}
+			function SaveSerializableVariablesToClipboard(variableNames){
+			    const globalObj=window;
+			    const serializableVars={};
+			    for (const key of variableNames){
+					try{
+						const value=globalObj[key];
+						const serialized=JSON.stringify(value);
+						serializableVars[key]=value;
+					}catch (error){
+						continue;
+					}
+				}
+				const result=Encrypt(JSON.stringify(serializableVars,null,2));
+				navigator.clipboard.writeText(result); 
+				return serializableVars;
+			}
+			function SaveSerializableVariablesToLocalStorage(variableNames){
+			    const globalObj=window;
+			    const serializableVars={};
+			    _timestamp=Date.now();
+			    for (const key of variableNames){
+					try{
+						const value=globalObj[key];
+						const serialized=JSON.stringify(value);
+						serializableVars[key]=value;
+					}catch (error){
+						continue;
+					}
+				}
+				const result=Encrypt(JSON.stringify(serializableVars,null,2));
+				localStorage.setItem("data", result);
+				return serializableVars;
+			}
+			function LoadSerializableVariablesFromLocalStorage(){
+			    try{
+			        const encryptedText = localStorage.getItem("data");
+			        if (!encryptedText) {
+			            console.warn("No data found in localStorage");
+			            return;
+			        }
+			        
+			        const decryptedText = Decrypt(encryptedText);
+			        const serializableVars = JSON.parse(decryptedText);
+			        
+			        for(const key in serializableVars){
+			            window[key] = serializableVars[key];
+			        }
+			        Simulate(Date.now()-_timestamp);
+			        Refresh();
+			    } catch(error){
+			        console.error("Error loading from localStorage:", error);
+			    }
+			}
+			async function Simulate(x) {
+			    var totalFrames = x / 200;
+			    leftFrames = totalFrames;
+			    
+			    for(var i = 1;leftFrames>=1024*1024; i++){
+			        RunAutomation(true,20);
+			        
+			        // 每1000帧等待一下，让出控制权
+			        if(i % 1 === 0) {
+			            SimulateLeftFrame=leftFrames;
+			            Refresh();
+			            // 让出控制权，允许其他代码执行
+			            await new Promise(resolve => setTimeout(resolve, 0));
+			        }
+			            SimulateLeftFrame=leftFrames;
+			        leftFrames-=1024*1024;
+			    }
+			    
+			    for(var i = 1;leftFrames>=1024; i++){
+			        RunAutomation(true,10);
+			        
+			        // 每1000帧等待一下，让出控制权
+			        if(i % 10 === 0) {
+			            SimulateLeftFrame=leftFrames;
+			            Refresh();
+			            // 让出控制权，允许其他代码执行
+			            await new Promise(resolve => setTimeout(resolve, 0));
+			        }
+			            SimulateLeftFrame=leftFrames;
+			        leftFrames-=1024;
+			    }
+			    for(var i = 1;leftFrames>=0; i++){
+			        RunAutomation(true,0);
+			        leftFrames--;
+			            SimulateLeftFrame=leftFrames;
+			            Refresh();
+			    }
+			    SimulateLeftFrame=0; 
+			    Refresh();
+			}
+			function LoadSerializableVariablesFromClipboard(){
+			    navigator.clipboard.readText().then(encryptedText=>{
+			        const decryptedText=Decrypt(encryptedText);
+			        const serializableVars=JSON.parse(decryptedText);
+			        console.log(serializableVars);
+			        for(const key in serializableVars){
+			            window[key]=serializableVars[key];
+			        }
+			        Refresh();
+			    });
+			}
+			function Encrypt(text){
+				var key=0x55;
+				var result='';
+				for (let i=0;i<text.length;i++,key++){
+					const encryptedChar=text.charCodeAt(i)^key;
+					result+=String.fromCharCode(encryptedChar);
+				}
+				return btoa(unescape(encodeURIComponent(result)));
+			}
+			function Decrypt(encryptedText){
+				var key=0x55; 
+				decoded=decodeURIComponent(escape(atob(encryptedText)));
+				var result='';
+				for (let i=0;i<decoded.length;i++) {
+					const decryptedChar=decoded.charCodeAt(i)^key;
+					key++;
+					result+=String.fromCharCode(decryptedChar);
+				}
+				return result;
+			}
+			function DELETEALL(){
+				var confirm=prompt("Enter 'I am sure this will delete all my progress. This process is irreversible. Default offline progress will be cleared too. AND ORDINAL MARKUP(BOWEN REMAKE!) IS THE WORST GAME I HAVE EVER PLAYED.'");
+				if(confirm=='I am sure this will delete all my progress. This process is irreversible. Default offline progress will be cleared too. AND ORDINAL MARKUP(BOWEN REMAKE!) IS THE WORST GAME I HAVE EVER PLAYED.'){
+					localStorage.setItem("data","Llx3eHsZNC45fGVAOj9PbkVGRRwGKw8IT1RPK3tSU1RVLSpyWVomUHdeX8Kiw7LDssOmw6HDocOHwqXCssKpw5HDlsKgwofCrsKvwrLDosOiw7bDscOxw5TCtcKiwrnDgcOGwrDCl8K+wr/CgsOSw5LDhsOBw4HDpcKFwpLCicOxw7bCgMKnwo7Cj8KSw4LDgsOWw5HDkcOywpXCgsKZw6HDpsKQwrfCnsKfw6LCgMK3wrfCq8KowqfCs8KhwqbCpMKKwrrDr8O0w6/DoMO9w5jDs8O0w7fCl8K/wrnCr8K/wpnCqcKkw7zDpcOAw5HDjsOpw4TDhcOEwqXCgMKIwpzCjsKuwpjCl8ONw4rDkcOCw5/DvsOVw5bDlcK7wpHCm8KNwpnCv8KLwobEosS7xKLEs8SoxI/EpsSnxKrFjcWixarFusWoxYzFusWpxLPEqMSzxKTEn8Wr");
+					LoadSerializableVariablesFromLocalStorage();
+				}
+			}
+	    </script>
+	</body>
+</html>
