@@ -1,0 +1,341 @@
+<html>
+	<body> 
+		<div>
+			Current Ordinal:
+			<a id="CurrentOrdinal">
+				0
+			</a>
+		</div>
+		<button onclick="Increase()">
+			<p>
+				ordinal +1
+			</p>
+		</button>
+		<button onclick="AbleDisableAutomation()">
+			<p>
+				Able/Disable Automation
+			</p>
+		</button>
+		<div>
+			<div>
+				Speed Of Automation A:
+				<a id="SpeedAutomationA">
+					0
+				</a>
+				 (*<a id="SpeedAutomationAMultiply">0</a>)
+				 Upgrade: 
+				<button onclick="SpeedAutomationAUpgrade()">
+					<div>
+						Need:
+						<a id="SpeedAutomationAUpgradNeed">
+							ω<sup>2</sup> 
+						</a>
+					</div>
+				</button>
+			</div>
+		</div>
+		<div>
+			<div>
+				Speed Of Automation B:
+				<a id="SpeedAutomationB">
+					0
+				</a>
+				 (*<a id="SpeedAutomationBMultiply">0</a>)
+				 Upgrade: 
+				<button onclick="SpeedAutomationBUpgrade()">
+					<div>
+						Need:
+						<a id="SpeedAutomationBUpgradNeed">
+							ω<sup>ω</sup> 
+						</a>
+					</div>
+				</button>
+			</div>
+		</div>
+		<div>
+			<div>
+				Speed Of Automation C:
+				<a id="SpeedAutomationC">
+					0
+				</a>
+				 (*<a id="SpeedAutomationCMultiply">0</a>)
+				 Upgrade: 
+				<button onclick="SpeedAutomationCUpgrade()">
+					<div>
+						Need:
+						<a id="SpeedAutomationCUpgradNeed">
+							ω<sup>ω+3</sup> 
+						</a>
+					</div>
+				</button>
+			</div>
+		</div>
+		<div>
+			<div>
+				Speed Of Automation D:
+				<a id="SpeedAutomationD">
+					0
+				</a>
+				 (*<a id="SpeedAutomationDMultiply">0</a>)
+				 Upgrade: 
+				<button onclick="SpeedAutomationDUpgrade()">
+					<div>
+						Need:
+						<a id="SpeedAutomationDUpgradNeed">
+							ω<sup>ω3</sup> 
+						</a>
+					</div>
+				</button>
+			</div>
+		</div>
+		<div>
+			<button onclick="Markup1()">
+				Reach <a id="MarkupFor1Need">ω<sup>ω<sup>2</sup></sup></a> to Reset for 1 op
+			</button>
+			<button onclick="MarkupX()">
+				Reach <a id="MarkupForXNeed">ω<sup>ω<sup>2</sup>+ω</sup></a> to Reset for 100 op
+			</button>
+		</div>
+		Automation run 5 times/sec.
+		<div>
+			<button onclick="SaveSerializableVariablesToClipboardX()"> 
+				Save file
+			</button>
+			<button onclick="LoadSerializableVariablesFromClipboard()">
+				Load file
+			</button>
+		<script>
+			function EqualOrdinal(x,y){
+				if(x.length!=y.length)return false;
+				for(var i=0;i<x.length;i++){
+					if(!EqualOrdinal(x[i],y[i]))return false;
+				}
+				return true;
+			}
+			function SmallerOrdinal(x,y){
+				for(var i=0;i<y.length;i++){
+					if(i>=x.length)return true;
+					if(EqualOrdinal(x[i],y[i]))continue;
+					if(SmallerOrdinal(x[i],y[i]))return true;
+					return false;
+				}
+				return false;
+			}
+			function Swap(x,i,j){
+				var z=x[i];
+				x[i]=x[j];
+				x[j]=z;
+			}
+			function AdjustOrdinal(x){
+				for(var i=0;i<x.length;i++){
+					x[i]=AdjustOrdinal(x[i]);
+				}
+				for(var i=0;i<x.length;i++){
+					for(var j=i+1;j<x.length;j++){
+						if(SmallerOrdinal(x[i],x[j])){
+							Swap(x,i,j);
+						}
+					}
+				}
+				var y=[];
+				for(var i=0;i<x.length;){
+					if(i+3<x.length&&EqualOrdinal(x[i],x[i+1])&&EqualOrdinal(x[i+1],x[i+2])&&EqualOrdinal(x[i+2],x[i+3])){
+						y.push(x[i].concat([[]]));
+						i+=4;
+						adjusted=1;
+					}
+					else{
+						y.push(x[i]);
+						i++;
+					}
+				}
+				return y;
+			}
+			function Sequence(x){
+				if(x.length==0)return "0"; 
+				var res="";
+				var varprinted=0;
+				for(var i=0;i<x.length;){
+					if(i!=0)res+="+";
+					var pres=Sequence(x[i]);
+					if(pres=="0"){
+					}
+					else if(pres=="1"){
+						res+="ω";
+					}
+					else{
+						res+="ω<sup>";
+						res+=pres;
+						res+="</sup>";
+					}
+					var times=1;
+					for(var j=i+1;j<x.length;j++)if(EqualOrdinal(x[i],x[j]))times++;
+					if(times!=1||pres=="0")res+=times;
+					i+=times;
+					varprinted++;
+					if(varprinted>=5){
+						res+="+...";
+						break;
+					}
+				}
+				return res;
+			}
+			function AddOrdinal(x,y){
+				var z=x.concat(y);
+				adjusted=1;
+				while(adjusted){
+					adjusted=0; 
+					z=AdjustOrdinal(z);
+				}
+				return z;
+			}
+			//                            CONST AREA
+			var multiplyShow=[[],[[]],[[],[]],[[[]]],[[[]],[[]]],[[[],[]]],[[[],[]],[[],[]]],[[[],[],[]]],[[[],[],[]],[[],[],[]]]];
+			var multiplyReal=[0,1,2,4,8,16,32,64,128];
+			var multiplyIncr=[0,1,1,2,4,8,16,32,64];
+			var priceA=[[[[],[]]],[[[[]]]],[[[[]],[],[]]],[[[[]],[[]]]],[[[[]],[[]],[[]],[],[]]],[[[[],[]],[[]]]],[[[[],[]],[[]],[[]],[]]]];
+			var priceB=[[[[[]]]],[[[[]],[[]]]],[[[[]],[[]],[[]]]],[[[[],[]]]],[[[[],[]],[[]],[]]],[[[[],[]],[[]],[[]],[],[]]],[[[[],[]],[[]],[[]],[[]],[],[],[]]]];
+			var priceC=[[[[[]],[],[],[]]],[[[[]],[[]],[],[],[]]],[[[[]],[[]],[[]],[],[],[]]],[[[[[]]],[],[],[]]],[[[[[]]],[[]],[[]]]],[[[[[]]],[[]],[[]],[[]]]],[[[[[]]],[[[]]]]]];
+			var priceD=[[[[[]],[[]],[[]]]],[[[[]],[[]],[[]],[],[]]],[[[[],[]],[[]]]],[[[[],[]],[[]],[],[]]],[[[[],[]],[[]],[[]]]],[[[[],[]],[[]],[[]],[[]],[],[]]],[[[[[]]],[[[]]],[],[]]]];
+			//                            VAR AREA
+			var adjusted=0;
+			var Cord=[];
+			var toAdd=[[]];
+			var speedA=[];
+			var speedB=[];
+			var speedC=[];
+			var speedD=[];
+			var StartAutomation=0;
+			var AutomationAv=0;
+			var AhaveBuy=0;
+			var BhaveBuy=0;
+			var ChaveBuy=0;
+			var DhaveBuy=0;
+			function SaveSerializableVariablesToClipboardX(){
+				SaveSerializableVariablesToClipboard(['Cord','toAdd','speedA','speedB','speedC','speedD','AutomationAv','AhaveBuy','BhaveBuy','ChaveBuy','DhaveBuy']);
+			}
+			function Refresh(){
+				var CurrentOrdinal=document.getElementById("CurrentOrdinal")
+				CurrentOrdinal.innerHTML=Sequence(Cord);
+				var CurrentOrdinal=document.getElementById("SpeedAutomationA");
+				CurrentOrdinal.innerHTML=Sequence(speedA);
+				var CurrentOrdinal=document.getElementById("SpeedAutomationB");
+				CurrentOrdinal.innerHTML=Sequence(speedB);
+				var CurrentOrdinal=document.getElementById("SpeedAutomationC");
+				CurrentOrdinal.innerHTML=Sequence(speedC);
+				var CurrentOrdinal=document.getElementById("SpeedAutomationD");
+				CurrentOrdinal.innerHTML=Sequence(speedD);
+				var CurrentOrdinal=document.getElementById("SpeedAutomationAMultiply");
+				CurrentOrdinal.innerHTML=Sequence(multiplyShow[AhaveBuy]);
+				var CurrentOrdinal=document.getElementById("SpeedAutomationBMultiply");
+				CurrentOrdinal.innerHTML=Sequence(multiplyShow[BhaveBuy]);
+				var CurrentOrdinal=document.getElementById("SpeedAutomationCMultiply");
+				CurrentOrdinal.innerHTML=Sequence(multiplyShow[ChaveBuy]);
+				var CurrentOrdinal=document.getElementById("SpeedAutomationDMultiply");
+				CurrentOrdinal.innerHTML=Sequence(multiplyShow[DhaveBuy]);
+				var CurrentOrdinal=document.getElementById("SpeedAutomationAUpgradNeed");
+				if(AhaveBuy<priceA.length)CurrentOrdinal.innerHTML=Sequence(priceA[AhaveBuy]);
+				else CurrentOrdinal.innerHTML="Infinity";
+				var CurrentOrdinal=document.getElementById("SpeedAutomationBUpgradNeed");
+				if(BhaveBuy<priceB.length)CurrentOrdinal.innerHTML=Sequence(priceB[BhaveBuy]);
+				else CurrentOrdinal.innerHTML="Infinity";
+				var CurrentOrdinal=document.getElementById("SpeedAutomationCUpgradNeed");
+				if(ChaveBuy<priceC.length)CurrentOrdinal.innerHTML=Sequence(priceC[ChaveBuy]);
+				else CurrentOrdinal.innerHTML="Infinity";
+				var CurrentOrdinal=document.getElementById("SpeedAutomationDUpgradNeed");
+				if(ChaveBuy<priceD.length)CurrentOrdinal.innerHTML=Sequence(priceD[DhaveBuy]);
+				else CurrentOrdinal.innerHTML="Infinity";
+			}
+			function Increase(){
+				Cord=AddOrdinal(Cord,[[]]);
+				Refresh();
+			}
+			function RunAutomation(){
+				if(AutomationAv){
+					if(!EqualOrdinal(speedA,[]))Cord=AddOrdinal(Cord,speedA);
+					if(!EqualOrdinal(speedB,[]))speedA=AddOrdinal(speedA,speedB);
+					if(!EqualOrdinal(speedC,[]))speedB=AddOrdinal(speedB,speedC);
+				}
+				Refresh();
+			}
+			function AbleDisableAutomation(){
+				if(!StartAutomation){
+					StartAutomation=true;
+					setInterval(()=>{
+						RunAutomation();
+					},200);
+				}
+				AutomationAv=1-AutomationAv;
+			}
+			function SpeedAutomationAUpgrade(){
+				if(SmallerOrdinal(priceA[AhaveBuy],Cord)){
+					speedA=AddOrdinal(speedA,multiplyIncr[AhaveBuy]);
+					AhaveBuy++;
+					Refresh();
+				}
+			}
+			function SpeedAutomationBUpgrade(){
+				if(SmallerOrdinal(priceB[BhaveBuy],Cord)){
+					speedB=AddOrdinal(speedB,multiplyIncr[BhaveBuy]);
+					BhaveBuy++;
+					Refresh();
+				}
+			}
+			function SpeedAutomationCUpgrade(){
+				if(SmallerOrdinal(priceC[ChaveBuy],Cord)){
+					speedC=AddOrdinal(speedC,multiplyIncr[ChaveBuy]);
+					ChaveBuy++;
+					Refresh();
+				}
+			}
+			function SaveSerializableVariablesToClipboard(variableNames){
+			    const globalObj=window;
+			    const serializableVars={};
+			    for (const key of variableNames){
+					try{
+						const value=globalObj[key];
+						const serialized=JSON.stringify(value);
+						serializableVars[key]=value;
+					}catch (error){
+						continue;
+					}
+				}
+				const result=Encrypt(JSON.stringify(serializableVars,null,2));
+				navigator.clipboard.writeText(result); 
+				return serializableVars;
+			}
+			function Encrypt(text){
+				var key=0x55;
+				var result='';
+				for (let i=0;i<text.length;i++,key++){
+					const encryptedChar=text.charCodeAt(i)^key;
+					result+=String.fromCharCode(encryptedChar);
+				}
+				return btoa(unescape(encodeURIComponent(result)));
+			}
+			function Decrypt(encryptedText){
+				console.log(encryptedText); 
+				var key=0x55; 
+				decoded=decodeURIComponent(escape(atob(encryptedText)));
+				var result='';
+				for (let i=0;i<decoded.length;i++) {
+					const decryptedChar=decoded.charCodeAt(i)^key;
+					key++;
+					result+=String.fromCharCode(decryptedChar);
+				}
+				return result;
+			}
+			function LoadSerializableVariablesFromClipboard(){
+			    navigator.clipboard.readText().then(encryptedText=>{
+			        const decryptedText=Decrypt(encryptedText);
+			        const serializableVars=JSON.parse(decryptedText);
+			        console.log(serializableVars);
+			        for(const key in serializableVars){
+			            window[key]=serializableVars[key];
+			        }
+			        Refresh();
+			    });
+			}
+		</script>
+	</body>
+</html>
